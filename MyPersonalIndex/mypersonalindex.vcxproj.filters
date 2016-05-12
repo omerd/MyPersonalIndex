@@ -1,0 +1,807 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;moc;h;def;odl;idl;res;</Extensions>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;moc;h;def;odl;idl;res;</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Generated Files\Debug">
+      <UniqueIdentifier>{cf8ec92b-e01f-4f9d-a1d8-0550045e672c}</UniqueIdentifier>
+      <Extensions>cpp;moc</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="Generated Files\Release">
+      <UniqueIdentifier>{df273a88-99ff-4f60-9ece-21c4d198367c}</UniqueIdentifier>
+      <Extensions>cpp;moc</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="Calculators">
+      <UniqueIdentifier>{e4fd5e02-a4ad-4673-9164-432c92a1537c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="forms">
+      <UniqueIdentifier>{777a6f44-0516-4436-a4a3-b5ceb9bb38be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI">
+      <UniqueIdentifier>{3622b20b-c4cd-4c7a-9dc3-632218dacad2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="usercontrol">
+      <UniqueIdentifier>{cf3f2219-53f7-43fa-b7a5-66d9ee229165}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="state">
+      <UniqueIdentifier>{0a98275c-5e06-4526-8785-4e7c520e5ecf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="price">
+      <UniqueIdentifier>{96a3b326-881c-4116-8162-40d5f3604a2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="models">
+      <UniqueIdentifier>{cc5d793d-a94e-474e-b85a-c87409c4fb07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="classes">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="state\headers">
+      <UniqueIdentifier>{68bb08dd-28b8-4a6f-8fac-a84efd2fd0fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="state\sources">
+      <UniqueIdentifier>{549a5971-70ff-414a-b8d0-b2ebed5091cb}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Debug\moc_fileState.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Release\moc_fileState.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="Debug\moc_frmColumns.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Release\moc_frmColumns.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="Debug\moc_frmEdit.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Release\moc_frmEdit.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="Debug\moc_frmEditAA_State.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Release\moc_frmEditAA_State.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="Debug\moc_frmEditAcct_State.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Release\moc_frmEditAcct_State.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="Debug\moc_frmEditSecurity_State.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Release\moc_frmEditSecurity_State.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="Debug\moc_frmEditState.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Release\moc_frmEditState.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="Debug\moc_frmEditTrade_State.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Release\moc_frmEditTrade_State.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="Debug\moc_frmMain.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Release\moc_frmMain.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="Debug\moc_frmMainChart_State.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Release\moc_frmMainChart_State.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="Debug\moc_frmMainCorrelation_State.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Release\moc_frmMainCorrelation_State.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="Debug\moc_frmMainPerformance_State.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Release\moc_frmMainPerformance_State.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="Debug\moc_frmMainStateTable.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Release\moc_frmMainStateTable.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="Debug\moc_frmMainStateTableWithTree.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Release\moc_frmMainStateTableWithTree.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="Debug\moc_frmMainStateToolbar.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Release\moc_frmMainStateToolbar.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="Debug\moc_frmMainStatistic_State.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Release\moc_frmMainStatistic_State.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="Debug\moc_frmMainTrade_State.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Release\moc_frmMainTrade_State.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="Debug\moc_frmPortfolioImport.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Release\moc_frmPortfolioImport.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="Debug\moc_frmPriceImport.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Release\moc_frmPriceImport.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="Debug\moc_frmSort.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Release\moc_frmSort.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="Debug\moc_mpiChart.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Release\moc_mpiChart.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="Debug\moc_mpiTableView.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Release\moc_mpiTableView.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\qrc_icons.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="calculators\calculatorAveragePrice.cpp">
+      <Filter>Calculators</Filter>
+    </ClCompile>
+    <ClCompile Include="calculators\calculatorTrade.cpp">
+      <Filter>Calculators</Filter>
+    </ClCompile>
+    <ClCompile Include="calculators\calculatorCorrelation.cpp">
+      <Filter>Calculators</Filter>
+    </ClCompile>
+    <ClCompile Include="calculators\calculatorNAV.cpp">
+      <Filter>Calculators</Filter>
+    </ClCompile>
+    <ClCompile Include="forms\frmEdit.cpp">
+      <Filter>forms</Filter>
+    </ClCompile>
+    <ClCompile Include="forms\frmColumns.cpp">
+      <Filter>forms</Filter>
+    </ClCompile>
+    <ClCompile Include="forms\frmMain.cpp">
+      <Filter>forms</Filter>
+    </ClCompile>
+    <ClCompile Include="forms\frmPortfolioImport.cpp">
+      <Filter>forms</Filter>
+    </ClCompile>
+    <ClCompile Include="forms\frmPriceImport.cpp">
+      <Filter>forms</Filter>
+    </ClCompile>
+    <ClCompile Include="forms\frmSort.cpp">
+      <Filter>forms</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmEdit_UI.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmEditAA_UI.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmEditAcct_UI.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmEditSecurity_UI.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmEditPortfolio_UI.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmEditTrade_UI.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmMain_UI.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmMainChart_UI.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmMainTableView_UI.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmMainToolbar_UI.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmMainTableViewTree_UI.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmMainTreeView_UI.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmPortfolioImport_UI.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmPriceImport_UI.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmSort_UI.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="usercontrols\mpiViewModelBase.cpp">
+      <Filter>usercontrol</Filter>
+    </ClCompile>
+    <ClCompile Include="usercontrols\mpiChartCurve.cpp">
+      <Filter>usercontrol</Filter>
+    </ClCompile>
+    <ClCompile Include="usercontrols\mpiDateEdit.cpp">
+      <Filter>usercontrol</Filter>
+    </ClCompile>
+    <ClCompile Include="usercontrols\mpiPlotZoomer.cpp">
+      <Filter>usercontrol</Filter>
+    </ClCompile>
+    <ClCompile Include="usercontrols\mpiTableView.cpp">
+      <Filter>usercontrol</Filter>
+    </ClCompile>
+    <ClCompile Include="usercontrols\mpiViewDelegates.cpp">
+      <Filter>usercontrol</Filter>
+    </ClCompile>
+    <ClCompile Include="usercontrols\mpiChart.cpp">
+      <Filter>usercontrol</Filter>
+    </ClCompile>
+    <ClCompile Include="classes\priceFactory.cpp">
+      <Filter>price</Filter>
+    </ClCompile>
+    <ClCompile Include="prices\priceGetterYahoo.cpp">
+      <Filter>price</Filter>
+    </ClCompile>
+    <ClCompile Include="prices\priceGetterTSP.cpp">
+      <Filter>price</Filter>
+    </ClCompile>
+    <ClCompile Include="prices\updatePrices.cpp">
+      <Filter>price</Filter>
+    </ClCompile>
+    <ClCompile Include="models\mainAAModel.cpp">
+      <Filter>models</Filter>
+    </ClCompile>
+    <ClCompile Include="models\mainTradeModel.cpp">
+      <Filter>models</Filter>
+    </ClCompile>
+    <ClCompile Include="models\mainAcctModel.cpp">
+      <Filter>models</Filter>
+    </ClCompile>
+    <ClCompile Include="models\mainCorrelationModel.cpp">
+      <Filter>models</Filter>
+    </ClCompile>
+    <ClCompile Include="models\mainPerformanceModel.cpp">
+      <Filter>models</Filter>
+    </ClCompile>
+    <ClCompile Include="models\mainSecurityModel.cpp">
+      <Filter>models</Filter>
+    </ClCompile>
+    <ClCompile Include="models\mainStatisticModel.cpp">
+      <Filter>models</Filter>
+    </ClCompile>
+    <ClCompile Include="models\objectKeyEditModel.cpp">
+      <Filter>models</Filter>
+    </ClCompile>
+    <ClCompile Include="models\securityAAModel.cpp">
+      <Filter>models</Filter>
+    </ClCompile>
+    <ClCompile Include="classes\account.cpp">
+      <Filter>classes</Filter>
+    </ClCompile>
+    <ClCompile Include="classes\tradeDateCalendar.cpp">
+      <Filter>classes</Filter>
+    </ClCompile>
+    <ClCompile Include="classes\assetAllocation.cpp">
+      <Filter>classes</Filter>
+    </ClCompile>
+    <ClCompile Include="classes\assetAllocationTarget.cpp">
+      <Filter>classes</Filter>
+    </ClCompile>
+    <ClCompile Include="classes\executedTrade.cpp">
+      <Filter>classes</Filter>
+    </ClCompile>
+    <ClCompile Include="classes\functions.cpp">
+      <Filter>classes</Filter>
+    </ClCompile>
+    <ClCompile Include="classes\historicalNAV.cpp">
+      <Filter>classes</Filter>
+    </ClCompile>
+    <ClCompile Include="classes\historicalPrices.cpp">
+      <Filter>classes</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>classes</Filter>
+    </ClCompile>
+    <ClCompile Include="classes\objectKey.cpp">
+      <Filter>classes</Filter>
+    </ClCompile>
+    <ClCompile Include="classes\orderBy.cpp">
+      <Filter>classes</Filter>
+    </ClCompile>
+    <ClCompile Include="classes\portfolio.cpp">
+      <Filter>classes</Filter>
+    </ClCompile>
+    <ClCompile Include="classes\portfolioFactory.cpp">
+      <Filter>classes</Filter>
+    </ClCompile>
+    <ClCompile Include="classes\queries.cpp">
+      <Filter>classes</Filter>
+    </ClCompile>
+    <ClCompile Include="classes\security.cpp">
+      <Filter>classes</Filter>
+    </ClCompile>
+    <ClCompile Include="classes\settings.cpp">
+      <Filter>classes</Filter>
+    </ClCompile>
+    <ClCompile Include="classes\settingsFactory.cpp">
+      <Filter>classes</Filter>
+    </ClCompile>
+    <ClCompile Include="classes\snapshot.cpp">
+      <Filter>classes</Filter>
+    </ClCompile>
+    <ClCompile Include="classes\splits.cpp">
+      <Filter>classes</Filter>
+    </ClCompile>
+    <ClCompile Include="classes\statistic.cpp">
+      <Filter>classes</Filter>
+    </ClCompile>
+    <ClCompile Include="classes\symbol.cpp">
+      <Filter>classes</Filter>
+    </ClCompile>
+    <ClCompile Include="classes\trade.cpp">
+      <Filter>classes</Filter>
+    </ClCompile>
+    <ClCompile Include="state\fileState.cpp">
+      <Filter>state\sources</Filter>
+    </ClCompile>
+    <ClCompile Include="state\fileStateIdentity.cpp">
+      <Filter>state\sources</Filter>
+    </ClCompile>
+    <ClCompile Include="state\frmEditAA_State.cpp">
+      <Filter>state\sources</Filter>
+    </ClCompile>
+    <ClCompile Include="state\frmEditAcct_State.cpp">
+      <Filter>state\sources</Filter>
+    </ClCompile>
+    <ClCompile Include="state\frmEditPortfolio_State.cpp">
+      <Filter>state\sources</Filter>
+    </ClCompile>
+    <ClCompile Include="state\frmEditSecurity_State.cpp">
+      <Filter>state\sources</Filter>
+    </ClCompile>
+    <ClCompile Include="state\frmEditState.cpp">
+      <Filter>state\sources</Filter>
+    </ClCompile>
+    <ClCompile Include="state\frmEditStateMap.cpp">
+      <Filter>state\sources</Filter>
+    </ClCompile>
+    <ClCompile Include="state\frmEditTrade_State.cpp">
+      <Filter>state\sources</Filter>
+    </ClCompile>
+    <ClCompile Include="state\frmMainAA_State.cpp">
+      <Filter>state\sources</Filter>
+    </ClCompile>
+    <ClCompile Include="state\frmMainAcct_State.cpp">
+      <Filter>state\sources</Filter>
+    </ClCompile>
+    <ClCompile Include="state\frmMainChart_State.cpp">
+      <Filter>state\sources</Filter>
+    </ClCompile>
+    <ClCompile Include="state\frmMainCorrelation_State.cpp">
+      <Filter>state\sources</Filter>
+    </ClCompile>
+    <ClCompile Include="state\frmMainPerformance_State.cpp">
+      <Filter>state\sources</Filter>
+    </ClCompile>
+    <ClCompile Include="state\frmMainSecurity_State.cpp">
+      <Filter>state\sources</Filter>
+    </ClCompile>
+    <ClCompile Include="state\frmMainState.cpp">
+      <Filter>state\sources</Filter>
+    </ClCompile>
+    <ClCompile Include="state\frmMainStateTable.cpp">
+      <Filter>state\sources</Filter>
+    </ClCompile>
+    <ClCompile Include="state\frmMainStateTableWithTree.cpp">
+      <Filter>state\sources</Filter>
+    </ClCompile>
+    <ClCompile Include="state\frmMainStateToolbar.cpp">
+      <Filter>state\sources</Filter>
+    </ClCompile>
+    <ClCompile Include="state\frmMainStateTree.cpp">
+      <Filter>state\sources</Filter>
+    </ClCompile>
+    <ClCompile Include="state\frmMainStatistic_State.cpp">
+      <Filter>state\sources</Filter>
+    </ClCompile>
+    <ClCompile Include="state\frmMainTrade_State.cpp">
+      <Filter>state\sources</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmColumns_UI.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="prices\priceGetterTA.cpp">
+      <Filter>price</Filter>
+    </ClCompile>
+    <ClCompile Include="classes\currency.cpp">
+      <Filter>classes</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="classes\account.h">
+      <Filter>classes</Filter>
+    </ClInclude>
+    <ClInclude Include="classes\assetAllocation.h">
+      <Filter>classes</Filter>
+    </ClInclude>
+    <ClInclude Include="classes\assetAllocationTarget.h">
+      <Filter>classes</Filter>
+    </ClInclude>
+    <ClInclude Include="classes\epsilon.h">
+      <Filter>classes</Filter>
+    </ClInclude>
+    <ClInclude Include="classes\executedTrade.h">
+      <Filter>classes</Filter>
+    </ClInclude>
+    <ClInclude Include="classes\functions.h">
+      <Filter>classes</Filter>
+    </ClInclude>
+    <ClInclude Include="classes\historicalNAV.h">
+      <Filter>classes</Filter>
+    </ClInclude>
+    <ClInclude Include="classes\historicalPrices.h">
+      <Filter>classes</Filter>
+    </ClInclude>
+    <ClInclude Include="classes\objectBase.h">
+      <Filter>classes</Filter>
+    </ClInclude>
+    <ClInclude Include="classes\objectKey.h">
+      <Filter>classes</Filter>
+    </ClInclude>
+    <ClInclude Include="classes\orderBy.h">
+      <Filter>classes</Filter>
+    </ClInclude>
+    <ClInclude Include="classes\portfolio.h">
+      <Filter>classes</Filter>
+    </ClInclude>
+    <ClInclude Include="classes\portfolioFactory.h">
+      <Filter>classes</Filter>
+    </ClInclude>
+    <ClInclude Include="classes\priceFactory.h">
+      <Filter>classes</Filter>
+    </ClInclude>
+    <ClInclude Include="classes\queries.h">
+      <Filter>classes</Filter>
+    </ClInclude>
+    <ClInclude Include="classes\queriesBatch.h">
+      <Filter>classes</Filter>
+    </ClInclude>
+    <ClInclude Include="classes\security.h">
+      <Filter>classes</Filter>
+    </ClInclude>
+    <ClInclude Include="classes\settings.h">
+      <Filter>classes</Filter>
+    </ClInclude>
+    <ClInclude Include="classes\settingsFactory.h">
+      <Filter>classes</Filter>
+    </ClInclude>
+    <ClInclude Include="classes\snapshot.h">
+      <Filter>classes</Filter>
+    </ClInclude>
+    <ClInclude Include="classes\splits.h">
+      <Filter>classes</Filter>
+    </ClInclude>
+    <ClInclude Include="classes\statistic.h">
+      <Filter>classes</Filter>
+    </ClInclude>
+    <ClInclude Include="classes\symbol.h">
+      <Filter>classes</Filter>
+    </ClInclude>
+    <ClInclude Include="classes\trade.h">
+      <Filter>classes</Filter>
+    </ClInclude>
+    <ClInclude Include="classes\tradeDateCalendar.h">
+      <Filter>classes</Filter>
+    </ClInclude>
+    <ClInclude Include="calculators\calculatorTrade.h">
+      <Filter>Calculators</Filter>
+    </ClInclude>
+    <ClInclude Include="calculators\calculatorNAV.h">
+      <Filter>Calculators</Filter>
+    </ClInclude>
+    <ClInclude Include="calculators\calculatorCorrelation.h">
+      <Filter>Calculators</Filter>
+    </ClInclude>
+    <ClInclude Include="calculators\calculatorAveragePrice.h">
+      <Filter>Calculators</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\frmColumns_UI.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\frmEdit_UI.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\frmEditAA_UI.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\frmEditAcct_UI.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\frmEditPortfolio_UI.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\frmEditSecurity_UI.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\frmEditTrade_UI.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\frmMain_UI.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\frmMainChart_UI.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\frmMainTableView_UI.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\frmMainTableViewTree_UI.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\frmMainToolbar_UI.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\frmMainTreeView_UI.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\frmPortfolioImport_UI.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\frmSort_UI.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\frmPriceImport_UI.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="usercontrols\mpiViewModelBase.h">
+      <Filter>usercontrol</Filter>
+    </ClInclude>
+    <ClInclude Include="usercontrols\mpiChartCurve.h">
+      <Filter>usercontrol</Filter>
+    </ClInclude>
+    <ClInclude Include="usercontrols\mpiDateEdit.h">
+      <Filter>usercontrol</Filter>
+    </ClInclude>
+    <ClInclude Include="usercontrols\mpiDateScale.h">
+      <Filter>usercontrol</Filter>
+    </ClInclude>
+    <ClInclude Include="usercontrols\mpiPercentScale.h">
+      <Filter>usercontrol</Filter>
+    </ClInclude>
+    <ClInclude Include="usercontrols\mpiPlotZoomer.h">
+      <Filter>usercontrol</Filter>
+    </ClInclude>
+    <ClInclude Include="usercontrols\mpiViewDelegates.h">
+      <Filter>usercontrol</Filter>
+    </ClInclude>
+    <ClInclude Include="prices\priceGetter.h">
+      <Filter>price</Filter>
+    </ClInclude>
+    <ClInclude Include="prices\priceGetterYahoo.h">
+      <Filter>price</Filter>
+    </ClInclude>
+    <ClInclude Include="prices\priceGetterTSP.h">
+      <Filter>price</Filter>
+    </ClInclude>
+    <ClInclude Include="prices\updatePrices.h">
+      <Filter>price</Filter>
+    </ClInclude>
+    <ClInclude Include="models\mainAAModel.h">
+      <Filter>models</Filter>
+    </ClInclude>
+    <ClInclude Include="models\mainStatisticModel.h">
+      <Filter>models</Filter>
+    </ClInclude>
+    <ClInclude Include="models\mainAcctModel.h">
+      <Filter>models</Filter>
+    </ClInclude>
+    <ClInclude Include="models\mainCorrelationModel.h">
+      <Filter>models</Filter>
+    </ClInclude>
+    <ClInclude Include="models\mainPerformanceModel.h">
+      <Filter>models</Filter>
+    </ClInclude>
+    <ClInclude Include="models\mainSecurityModel.h">
+      <Filter>models</Filter>
+    </ClInclude>
+    <ClInclude Include="models\mainTradeModel.h">
+      <Filter>models</Filter>
+    </ClInclude>
+    <ClInclude Include="models\objectKeyEditModel.h">
+      <Filter>models</Filter>
+    </ClInclude>
+    <ClInclude Include="models\securityAAModel.h">
+      <Filter>models</Filter>
+    </ClInclude>
+    <ClInclude Include="state\fileStateIdentity.h">
+      <Filter>state\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="state\frmEditPortfolio_State.h">
+      <Filter>state\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="state\frmEditStateMap.h">
+      <Filter>state\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="state\frmMainAA_State.h">
+      <Filter>state\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="state\frmMainAcct_State.h">
+      <Filter>state\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="state\frmMainSecurity_State.h">
+      <Filter>state\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="state\frmMainState.h">
+      <Filter>state\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="state\frmMainStateTree.h">
+      <Filter>state\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="prices\priceGetterTA.h">
+      <Filter>price</Filter>
+    </ClInclude>
+    <ClInclude Include="classes\currency.h">
+      <Filter>classes</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icons\MPI.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="icons\add.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="icons\delete.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="icons\edit.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <CustomBuild Include="icons\icons.qrc">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <None Include="icons\refresh.png">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="mypersonalindex.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="forms\frmColumns.h">
+      <Filter>forms</Filter>
+    </CustomBuild>
+    <CustomBuild Include="forms\frmEdit.h">
+      <Filter>forms</Filter>
+    </CustomBuild>
+    <CustomBuild Include="forms\frmMain.h">
+      <Filter>forms</Filter>
+    </CustomBuild>
+    <CustomBuild Include="forms\frmPortfolioImport.h">
+      <Filter>forms</Filter>
+    </CustomBuild>
+    <CustomBuild Include="forms\frmPriceImport.h">
+      <Filter>forms</Filter>
+    </CustomBuild>
+    <CustomBuild Include="forms\frmSort.h">
+      <Filter>forms</Filter>
+    </CustomBuild>
+    <CustomBuild Include="usercontrols\mpiChart.h">
+      <Filter>usercontrol</Filter>
+    </CustomBuild>
+    <CustomBuild Include="usercontrols\mpiTableView.h">
+      <Filter>usercontrol</Filter>
+    </CustomBuild>
+    <CustomBuild Include="state\frmMainTrade_State.h">
+      <Filter>state\headers</Filter>
+    </CustomBuild>
+    <CustomBuild Include="state\fileState.h">
+      <Filter>state\headers</Filter>
+    </CustomBuild>
+    <CustomBuild Include="state\frmEditAA_State.h">
+      <Filter>state\headers</Filter>
+    </CustomBuild>
+    <CustomBuild Include="state\frmEditAcct_State.h">
+      <Filter>state\headers</Filter>
+    </CustomBuild>
+    <CustomBuild Include="state\frmEditSecurity_State.h">
+      <Filter>state\headers</Filter>
+    </CustomBuild>
+    <CustomBuild Include="state\frmEditState.h">
+      <Filter>state\headers</Filter>
+    </CustomBuild>
+    <CustomBuild Include="state\frmEditTrade_State.h">
+      <Filter>state\headers</Filter>
+    </CustomBuild>
+    <CustomBuild Include="state\frmMainChart_State.h">
+      <Filter>state\headers</Filter>
+    </CustomBuild>
+    <CustomBuild Include="state\frmMainCorrelation_State.h">
+      <Filter>state\headers</Filter>
+    </CustomBuild>
+    <CustomBuild Include="state\frmMainPerformance_State.h">
+      <Filter>state\headers</Filter>
+    </CustomBuild>
+    <CustomBuild Include="state\frmMainStateTable.h">
+      <Filter>state\headers</Filter>
+    </CustomBuild>
+    <CustomBuild Include="state\frmMainStateTableWithTree.h">
+      <Filter>state\headers</Filter>
+    </CustomBuild>
+    <CustomBuild Include="state\frmMainStateToolbar.h">
+      <Filter>state\headers</Filter>
+    </CustomBuild>
+    <CustomBuild Include="state\frmMainStatistic_State.h">
+      <Filter>state\headers</Filter>
+    </CustomBuild>
+  </ItemGroup>
+</Project>
