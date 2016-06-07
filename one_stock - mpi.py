@@ -95,13 +95,17 @@ class DataFiles(object):
 
 	def downloader(self):
 		self.download_files()
-		last_downloaded = datetime.date.today()
+		last_downloaded = datetime.datetime.now()
 		while True:
-			today = datetime.date.today()
-			if today > last_downloaded:
+			today = datetime.datet.today()
+			now = datetime.datetime.now()
+			if today > last_downloaded.date():
 				self.download_files()
-				last_downloaded = datetime.date.today()
-			time.sleep(60*60)
+				last_downloaded = datetime.datetime.now()
+			if today == last_downloaded.date() and now.hour > 21 and last_downloaded.hour < 21:
+				self.download_files()
+				last_downloaded = datetime.datetime.now()
+			time.sleep(20*60)
 	
 dataFilesManager = DataFiles()
 	

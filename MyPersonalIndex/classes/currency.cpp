@@ -66,7 +66,21 @@ bool hasOfficialCurrencyValue(const CurrencyMap& currMap, currencyType from, cur
 	return false;
 }
 
-double currencyConverter::convert( currencyType from, currencyType to, int date )
+void currencyConverter::updatePersistentDataInCache(currencyType from, currencyType to, int date, double price, bool isTemp )
+{
+	PriceData data;
+	data.isTemp = isTemp;
+	data.price = price;
+	//0 is not cached. 0 means that the server is offline or there is a bug in the server. we don't want this information to be saved forever in the db.
+	dateToCurrencyMap[date][from][to] = data;
+
+	PriceData converse;
+	converse.price = 1.0 / data.price;
+	converse.isTemp = isTemp;
+	dateToCurrencyMap[date][to][from] = converse;
+}
+
+double currencyConverter::convert( currencyType from, currencyType to, int date)
 {
     if (to == from)
     {
@@ -91,28 +105,35 @@ double currencyConverter::convert( currencyType from, currencyType to, int date 
 			PriceData data = {0};
 			data.price =  getResult(from, to, date);
 			if(0 != data.price){
-				data.isTemp = false;
-				//0 is not cached. 0 means that the server is offline or there is a bug in the server. we don't want this information to be saved forever in the db.
-				dateToCurrencyMap[date][from][to] = data;
-
-                PriceData converse;
-                converse.price = 1.0 / data.price;
-                converse.isTemp = false;
-                dateToCurrencyMap[date][to][from] = converse;
-				
+				currencyConverter::updatePersistentDataInCache(from, to, date, data.price, false);
 			}
 			else
 			{
+				//get from previous dates cache
 				int currentDate = date-1;
-				for(int i = 0;		i < 15;		i ++, currentDate--)
+				for(int i = 0;		i < 10;		i ++, currentDate--)
 				{
 					if (hasValue(dateToCurrencyMap, from, to, currentDate))
 					{
-						data.price = dateToCurrencyMap[currentDate][from][to].price;
-						data.isTemp = true;
-						dateToCurrencyMap[date][from][to] = data;
+						double oldPrice = dateToCurrencyMap[currentDate][from][to].price;
+						data.price = oldPrice;
+						currencyConverter::updatePersistentDataInCache(from, to, date, oldPrice, true);
                         break;
 					}
+				}
+
+				//no cache. download.
+				currentDate = date-1;
+				for(int i = 0;		i < 10;		i ++, currentDate--)
+				{
+					int oldPrice = getResult(from, to, currentDate);
+					if(0 == oldPrice){
+						continue;
+					}
+
+					currencyConverter::updatePersistentDataInCache(from, to, currentDate, oldPrice, false);
+					data.isTemp = true;
+					data.price = oldPrice;
 				}
 			}
         return data.price;

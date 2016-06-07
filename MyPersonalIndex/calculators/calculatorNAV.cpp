@@ -294,9 +294,13 @@ double calculatorNAV::xirr(const portfolio *portfolio_, const objectKeyBase &key
     if(0 != priorSnapshot.totalValue)
     {
         days.push_back(endDate_);
-        payments.push_back(-1.0 * priorSnapshot.totalValue);
+        double lastTotalValue = priorSnapshot.totalValue;
+        if (!priorSnapshot.isInOriginalCurrency)
+        {
+            lastTotalValue *= priorSnapshot.exchangeCurrencyValue;
+        }
+        payments.push_back(-1.0 * lastTotalValue);
     }
-
 
 	return XIRR(payments, days, 0.1);
 }

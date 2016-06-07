@@ -36,6 +36,9 @@ public:
 	static void load(const queries &dataSource_);
 
 private:
+
+	//isTemp - does the price was retrieved from the server or from offline cache of previous date
+	static void updatePersistentDataInCache(currencyType from, currencyType to, int date, double price, bool isTemp  );
 	//map date to map of currency to currency
 	static CurrencyMap dateToCurrencyMap;
 };
