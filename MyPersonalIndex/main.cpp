@@ -18,5 +18,5 @@ int main(int argc, char *argv[])
     frmMain form(filePath);
     form.show();
 
-    return app.exec(); 
+    return app.exec();
 }
