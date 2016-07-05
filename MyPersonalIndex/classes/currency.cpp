@@ -126,7 +126,7 @@ double currencyConverter::convert( currencyType from, currencyType to, int date)
 				currentDate = date-1;
 				for(int i = 0;		i < 10;		i ++, currentDate--)
 				{
-					int oldPrice = getResult(from, to, currentDate);
+					double oldPrice = getResult(from, to, currentDate);
 					if(0 == oldPrice){
 						continue;
 					}
