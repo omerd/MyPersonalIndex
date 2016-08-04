@@ -27,10 +27,16 @@
 #include "frmMainChart_State.h"
 #include "frmPortfolioImport.h"
 #include "frmPriceImport.h"
+#include "executedTrade.h"
+#include "snapshot.h"
+#include "currency.h"
 
 #ifdef CLOCKTIME
 #include <QTime>
 #endif
+
+
+
 
 frmMain::frmMain(const QString &filePath_, QWidget *parent_):
     QMainWindow(parent_),
@@ -401,6 +407,7 @@ void frmMain::downloadPrices()
         return;
     }
 
+	//Map between symbol name to the creation date of it's portfolio.
     QMap<QString, int> symbols = portfolio::symbols(m_file->portfolios);
     if (symbols.isEmpty())
         return;
@@ -408,12 +415,72 @@ void frmMain::downloadPrices()
     disableForUpdate(true);
     showProgressBar(symbols.count());
 
-    updatePrices u;
+	//if among all the securities with the same symbol name (like IBB), all the securities hold 0 shares (you can know that from CalculatorNAV)
+	//in the day of the last trade AND we already have prices in the getHistoricalPrice for that symbol after that last trade -> then do not update price.
+	QMap<QString, bool> SymbolToLastestTradeDateMap;
+	foreach(const portfolio &p, m_file->portfolios)
+		foreach(const security &s, p.securities())
+	{
+		QString& symbolName = s.description();//A security's symbol name is its description()
+		if (SymbolToLastestTradeDateMap.contains(symbolName))
+			continue;
+
+		executedTradeMap& tradeMap = s.executedTrades();
+        int lastTradeDate = 0, firstTradeDate = INT_MAX;
+		int lastPriceDate = m_file->prices.getHistoricalPrice(symbolName).endDate(historicalPrices::type_price);
+		int firstPriceDate = m_file->prices.getHistoricalPrice(symbolName).beginDate(historicalPrices::type_price);
+        for(QMap<int, executedTrade>::const_iterator i = tradeMap.constBegin(); i != tradeMap.constEnd(); ++i)
+		{
+			if (i.key() > lastTradeDate)
+				lastTradeDate = i.key();
+
+			if (i.key() < firstTradeDate)
+				firstTradeDate = i.key();
+		}
+
+        double shares = 0;
+        if(lastTradeDate == 0)
+        {
+            shares = p.securitySnapshot( lastPriceDate, s.id(), 0).shares;
+        }
+        else
+        {
+            shares = p.securitySnapshot( lastTradeDate, s.id(), 0).shares;
+        }
+
+		if(shares > 0)
+		{
+            SymbolToLastestTradeDateMap.insert(symbolName, true);
+            continue;
+		}
+
+        if(lastPriceDate <= lastTradeDate)
+		{
+            //currencyNIS has no good historical data
+			SymbolToLastestTradeDateMap.insert(symbolName, true);
+			continue;
+		}
+
+        if(firstPriceDate > firstTradeDate && ( !currencyNIS == s.getSecurityCurrency()))
+		{
+			SymbolToLastestTradeDateMap.insert(symbolName, true);
+			continue;
+		}
+	}
+		
+		
+	updatePrices u;
     QList<int> results;
     for(QMap<QString, int>::const_iterator i = symbols.constBegin(); i != symbols.constEnd(); ++i)
     {
-		m_file->prices.getHistoricalPrice(i.key()).removeTempPrices();
-        results.append(u.get(m_file->prices.getHistoricalPrice(i.key()), i.value(), tradeDateCalendar::endDate()));
+		const QString& symbolName = i.key();
+        if (!SymbolToLastestTradeDateMap.contains(symbolName))
+		{
+			continue;
+		}
+
+		m_file->prices.getHistoricalPrice(symbolName).removeTempPrices();
+        results.append(u.get(m_file->prices.getHistoricalPrice(symbolName), i.value(), tradeDateCalendar::endDate()));
         ui->progressUpdateBar->setValue(ui->progressUpdateBar->value() + 1);
     }
 

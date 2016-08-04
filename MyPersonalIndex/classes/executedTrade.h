@@ -59,6 +59,7 @@ public:
     QVariant data(int column_, bool newRow_);
 
 private:
+	//map from trade date to trade details.
    QMultiMap<int, executedTrade> m_trades;
    QMap<int, executedTrade>::const_iterator m_position;
 };

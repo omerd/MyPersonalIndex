@@ -154,7 +154,7 @@ baseRow* aaRow::getRow(const assetAllocation &assetAllocation_, int beginDate_, 
 
     snapshot snapNow = portfolio_.assetAllocationSnapshot(endDate_, assetAllocation_.id());
     snapshot snapBegin = portfolio_.assetAllocationSnapshot(beginDate_, assetAllocation_.id());
-	double change_ = 0;
+    double change_ = 0;
 	change_ = snapNow.getGains() - snapBegin.getGains();
 	double chnageInPercentage = 0;
 

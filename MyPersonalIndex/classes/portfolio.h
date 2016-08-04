@@ -35,7 +35,7 @@ public:
     int startDate() const;
     void setStartDate(int startDate_);
 
-    QMap<int, security>& securities() const;
+    QMap<int, security>& securities() const; //Security ID map to security object
     QMap<int, assetAllocation>& assetAllocations() const;
     QMap<int, account>& accounts() const;
 

@@ -97,7 +97,7 @@ class DataFiles(object):
 		self.download_files()
 		last_downloaded = datetime.datetime.now()
 		while True:
-			today = datetime.datet.today()
+			today = datetime.date.today()
 			now = datetime.datetime.now()
 			if today > last_downloaded.date():
 				self.download_files()
