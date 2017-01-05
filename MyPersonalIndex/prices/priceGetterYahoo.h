@@ -18,6 +18,9 @@ public:
     int getSplits(const QString &symbol_, historicalPrices priceHistory_, int beginDate_, int endDate_) const;
 
 private:
+
+    QByteArray getPricesForToday(const QString &symbol_, historicalPrices priceHistory_, int beginDate_, int endDate_) const;
+
     static const char stockPrices = 'd';
     static const char stockDividends = 'v';
 

@@ -48,8 +48,24 @@ QList<QByteArray> priceGetterYahoo::downloadFile(const QUrl &url_, bool splitRes
     return lines;
 }
 
+QByteArray priceGetterYahoo::getPricesForToday(const QString &symbol_, historicalPrices priceHistory_, int beginDate_, int endDate_) const
+{
+    QList<QByteArray> lines =
+        downloadFile(QUrl( QString("http://download.finance.yahoo.com/d/quotes.csv?s=%1&f=d1ohgl1vl1").arg(symbol_) ));
+    if (lines.count() > 1)
+    {
+        return lines[0];
+    }
+    else
+    {
+        return QByteArray();
+    }
+}
+
 int priceGetterYahoo::getPrices(const QString &symbol_, historicalPrices priceHistory_, int beginDate_, int endDate_) const
 {
+    const int TODAY_DATE = QDate::currentDate().toJulianDay();
+
     int earliestUpdate = endDate_ + 1;
     QList<QByteArray> lines =
         downloadFile(QUrl(
@@ -60,21 +76,31 @@ int priceGetterYahoo::getPrices(const QString &symbol_, historicalPrices priceHi
                 QString(stockPrices)
             )
         ));
-	bool tempPrice = false;
-    if(lines.count() <= 2 && endDate_ - beginDate_ <= 4)
-	{
-		tempPrice = true;
-        lines =
-            downloadFile(QUrl( QString("http://download.finance.yahoo.com/d/quotes.csv?s=%1&f=d1ohgl1vl1").arg(symbol_) ));
-		if (lines.count() > 1)
-		{
-			lines.push_front("\n");
-		}
-	}
+
+
+    QByteArray todayInfo;
+    bool todayDataAvailable = false;
+    if(TODAY_DATE == endDate_)
+    {
+        todayInfo = getPricesForToday(symbol_, priceHistory_, beginDate_, endDate_);
+        if(todayInfo.size() > 0)
+        {
+            todayDataAvailable = true;
+        }
+    }
 
     if (lines.count() <= 2)
 	{   
-		return lines.empty() ? -1 : earliestUpdate; // return true if at least the header row came through
+        if(!todayDataAvailable)
+        {
+            return lines.empty() ? -1 : earliestUpdate; // return true if at least the header row came through
+        }
+        else
+        {
+            lines.push_front("\n");
+            lines.push_back(todayInfo);
+            lines.push_back("\n");
+        }
 	}
 
     lines.removeFirst();
@@ -96,13 +122,17 @@ int priceGetterYahoo::getPrices(const QString &symbol_, historicalPrices priceHi
             {
                 date = QDate::fromString(s_date,"MM/d/yyyy").toJulianDay();
             }
+            if (0 == date)
+            {
+                date = QDate::fromString(s_date,"M/d/yyyy").toJulianDay();
+            }
 		}
         if (priceHistory_.contains(date, historicalPrices::type_price))
             continue;
 
         earliestUpdate = qMin(earliestUpdate, date);
-		if(tempPrice){
-			priceHistory_.addDateOfTempPrice(date);
+        if(todayDataAvailable){
+            priceHistory_.addDateOfTempPrice(TODAY_DATE);
 		}
         priceHistory_.insert(date, line.at(4).toDouble(), historicalPrices::type_price);
     }
