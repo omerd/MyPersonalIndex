@@ -19,7 +19,7 @@ public:
 
 private:
 
-    QByteArray getPricesForToday(const QString &symbol_, historicalPrices priceHistory_, int beginDate_, int endDate_) const;
+    QByteArray getPricesForToday(const QString &symbol_, historicalPrices priceHistory_) const;
 
     static const char stockPrices = 'd';
     static const char stockDividends = 'v';

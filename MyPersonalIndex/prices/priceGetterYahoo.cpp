@@ -7,18 +7,19 @@
 #include <QStringList>
 #include <QEventLoop>
 #include <QDate>
+#include <QSslConfiguration>
 #include "historicalPrices.h"
 
 QString priceGetterYahoo::getCSVAddress(const QString &symbol_, const QDate &beginDate_, const QDate &endDate_, const QString &type_)
 {
-    return QString("http://ichart.finance.yahoo.com/table.csv?s=%1&a=%2&b=%3&c=%4&d=%5&e=%6&f=%7&g=%8&ignore=.csv").arg(
+    return QString("http://127.0.0.1:8017/ichart.finance.yahoo.com/table.csv?s=%1&a=%2&b=%3&c=%4&d=%5&e=%6&f=%7&g=%8&ignore=.csv").arg(
         symbol_, QString::number(beginDate_.month() - 1), QString::number(beginDate_.day()), QString::number(beginDate_.year()),
                 QString::number(endDate_.month() - 1), QString::number(endDate_.day()), QString::number(endDate_.year()), type_);
 }
 
 QString priceGetterYahoo::getSplitAddress(const QString &symbol, const QDate &beginDate_, const QDate &endDate_)
 {
-    return QString("http://ichart.finance.yahoo.com/x?s=%1&a=%2&b=%3&c=%4&d=%5&e=%6&f=%7&g=v&y=0&z=30000").arg(
+    return QString("http://127.0.0.1:8017/ichart.finance.yahoo.com/x?s=%1&a=%2&b=%3&c=%4&d=%5&e=%6&f=%7&g=v&y=0&z=30000").arg(
 		symbol, QString::number(beginDate_.month() - 1), QString::number(beginDate_.day()), QString::number(beginDate_.year()),
 		QString::number(endDate_.month() - 1), QString::number(endDate_.day()), QString::number(endDate_.year()));
 }
@@ -29,7 +30,13 @@ QList<QByteArray> priceGetterYahoo::downloadFile(const QUrl &url_, bool splitRes
 
     QNetworkAccessManager manager;
     QEventLoop loop;
-    QNetworkRequest request(url_);
+    QNetworkRequest request;
+
+	QSslConfiguration config = QSslConfiguration::defaultConfiguration();
+	config.setProtocol(QSsl::TlsV1);//maybe v1 will become deprecated one day.
+	request.setSslConfiguration(config);
+	request.setUrl(QUrl(url_));
+
     QNetworkReply *reply = manager.get(request);
     QObject::connect(reply, SIGNAL(finished()), &loop, SLOT(quit()));
 
@@ -48,7 +55,7 @@ QList<QByteArray> priceGetterYahoo::downloadFile(const QUrl &url_, bool splitRes
     return lines;
 }
 
-QByteArray priceGetterYahoo::getPricesForToday(const QString &symbol_, historicalPrices priceHistory_, int beginDate_, int endDate_) const
+QByteArray priceGetterYahoo::getPricesForToday(const QString &symbol_, historicalPrices priceHistory_) const
 {
     QList<QByteArray> lines =
         downloadFile(QUrl( QString("http://download.finance.yahoo.com/d/quotes.csv?s=%1&f=d1ohgl1vl1").arg(symbol_) ));
@@ -82,7 +89,7 @@ int priceGetterYahoo::getPrices(const QString &symbol_, historicalPrices priceHi
     bool todayDataAvailable = false;
     if(TODAY_DATE == endDate_)
     {
-        todayInfo = getPricesForToday(symbol_, priceHistory_, beginDate_, endDate_);
+        todayInfo = getPricesForToday(symbol_, priceHistory_);
         if(todayInfo.size() > 0)
         {
             todayDataAvailable = true;
@@ -91,6 +98,7 @@ int priceGetterYahoo::getPrices(const QString &symbol_, historicalPrices priceHi
 
     if (lines.count() <= 2)
 	{   
+		lines.clear();
         if(!todayDataAvailable)
         {
             return lines.empty() ? -1 : earliestUpdate; // return true if at least the header row came through
@@ -183,6 +191,8 @@ int priceGetterYahoo::getSplits(const QString &symbol_, historicalPrices priceHi
     if (lines.isEmpty())
         return earliestUpdate;
 	lines.removeFirst();
+	if (lines.isEmpty())
+		return earliestUpdate;
 	lines.removeLast();
 
 	foreach(const QByteArray &s, lines)
