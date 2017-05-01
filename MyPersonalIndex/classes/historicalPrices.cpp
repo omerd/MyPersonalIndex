@@ -112,14 +112,17 @@ historicalPrices& historicalPrices::operator=(const historicalPrices &other_)
 
 double historicalPrices::priceForMissingDate(int date_) const
 {
-    //TODO: binary search
+    //TODO: binary search, but it's not simple since there are many holes in the list.
     int endDate = (d->prices.constEnd()-1).key();
-    int beginDate = (d->prices.constBegin()).key();
-    if(0 == endDate || 0 == beginDate )
+	int beginDate = (d->prices.constBegin()).key();
+    if(0 == endDate || date_ < beginDate)
     {
         return 0;
     }
-    if(date_ < endDate)
+#ifdef _DEBUG
+	QString f2d = QDate::fromJulianDay(date_).toString("yyyy-MM-dd");
+#endif
+    if(date_ < endDate && date_ != 0)
     {
         while(date_ <= endDate)
         {
@@ -132,7 +135,7 @@ double historicalPrices::priceForMissingDate(int date_) const
     }
     else
     {
-        while(date_ >= beginDate)
+        while(date_ >= endDate)
         {
             if(d->prices.contains(date_))
             {
