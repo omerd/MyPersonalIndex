@@ -299,6 +299,7 @@ class YahooFinanceRequestHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 		security_id = None
 
 		try:
+			print self.path
 			security_id = self.getStockNumber(self.path)
 		except:
 			self.send_error(404, "File not found")

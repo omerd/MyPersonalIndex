@@ -13,15 +13,15 @@
 QString priceGetterYahoo::getCSVAddress(const QString &symbol_, const QDate &beginDate_, const QDate &endDate_, const QString &type_)
 {
     return QString("http://127.0.0.1:8017/ichart.finance.yahoo.com/table.csv?s=%1&a=%2&b=%3&c=%4&d=%5&e=%6&f=%7&g=%8&ignore=.csv").arg(
-        symbol_, QString::number(beginDate_.month() - 1), QString::number(beginDate_.day()), QString::number(beginDate_.year()),
-                QString::number(endDate_.month() - 1), QString::number(endDate_.day()), QString::number(endDate_.year()), type_);
+        symbol_, QString::number(beginDate_.month()), QString::number(beginDate_.day()), QString::number(beginDate_.year()),
+                QString::number(endDate_.month()), QString::number(endDate_.day()), QString::number(endDate_.year()), type_);
 }
 
 QString priceGetterYahoo::getSplitAddress(const QString &symbol, const QDate &beginDate_, const QDate &endDate_)
 {
     return QString("http://127.0.0.1:8017/ichart.finance.yahoo.com/x?s=%1&a=%2&b=%3&c=%4&d=%5&e=%6&f=%7&g=v&y=0&z=30000").arg(
-		symbol, QString::number(beginDate_.month() - 1), QString::number(beginDate_.day()), QString::number(beginDate_.year()),
-		QString::number(endDate_.month() - 1), QString::number(endDate_.day()), QString::number(endDate_.year()));
+		symbol, QString::number(beginDate_.month()), QString::number(beginDate_.day()), QString::number(beginDate_.year()),
+		QString::number(endDate_.month()), QString::number(endDate_.day()), QString::number(endDate_.year()));
 }
 
 QList<QByteArray> priceGetterYahoo::downloadFile(const QUrl &url_, bool splitResultByLineBreak_)
@@ -79,7 +79,7 @@ int priceGetterYahoo::getPrices(const QString &symbol_, historicalPrices priceHi
             getCSVAddress(
                 symbol_,
                 QDate::fromJulianDay(beginDate_),
-                QDate::fromJulianDay(endDate_),
+                QDate::fromJulianDay(endDate_ + 1),
                 QString(stockPrices)
             )
         ));
@@ -139,7 +139,7 @@ int priceGetterYahoo::getPrices(const QString &symbol_, historicalPrices priceHi
             continue;
 
         earliestUpdate = qMin(earliestUpdate, date);
-        if(todayDataAvailable){
+        if(todayDataAvailable && date == TODAY_DATE){
             priceHistory_.addDateOfTempPrice(TODAY_DATE);
 		}
         priceHistory_.insert(date, line.at(4).toDouble(), historicalPrices::type_price);
@@ -156,7 +156,7 @@ int priceGetterYahoo::getDividends(const QString &symbol_, historicalPrices pric
             getCSVAddress(
                 symbol_,
                 QDate::fromJulianDay(beginDate_),
-                QDate::fromJulianDay(endDate_),
+                QDate::fromJulianDay(endDate_  + 1),
                 QString(stockDividends)
             )
         ));
@@ -169,14 +169,19 @@ int priceGetterYahoo::getDividends(const QString &symbol_, historicalPrices pric
 
     foreach(const QByteArray &s, lines)
     {
-        QList<QByteArray> line = s.split(','); // csv
+		QList<QByteArray> line = s.split(','); // csv
+		QString type = line.at(1);
+		if (-1 == type.indexOf("Dividend", 0, Qt::CaseInsensitive)){
+			continue;
+		}
 
-        int date = QDate::fromString(line.at(0), Qt::ISODate).toJulianDay();
-        if (priceHistory_.contains(date, historicalPrices::type_dividend))
-            continue;
+		QString dateString = line.at(0);
+		int date = QDate::fromString(dateString, Qt::ISODate).toJulianDay();
+		if (priceHistory_.contains(date, historicalPrices::type_dividend))
+			continue;
 
-        earliestUpdate = qMin(earliestUpdate, date);
-        priceHistory_.insert(date, line.at(1).toDouble(), historicalPrices::type_dividend);
+		earliestUpdate = qMin(earliestUpdate, date);
+		priceHistory_.insert(date, line.at(2).toDouble(), historicalPrices::type_dividend);
     }
 
     return earliestUpdate;
@@ -186,7 +191,7 @@ int priceGetterYahoo::getSplits(const QString &symbol_, historicalPrices priceHi
 {
     int earliestUpdate = endDate_ + 1;
     QList<QByteArray> lines = downloadFile(QUrl(getSplitAddress(symbol_, QDate::fromJulianDay(beginDate_),
-                                                                QDate::fromJulianDay(endDate_))), true);
+                                                                QDate::fromJulianDay(endDate_ + 1))), true);
 
     if (lines.isEmpty())
         return earliestUpdate;
@@ -198,13 +203,13 @@ int priceGetterYahoo::getSplits(const QString &symbol_, historicalPrices priceHi
 	foreach(const QByteArray &s, lines)
 	{
 		QList<QByteArray> line = s.split(','); // csv
-		QString type = line.at(0);
+		QString type = line.at(1);
 		if (-1 == type.indexOf("Split", 0, Qt::CaseInsensitive)){
 			continue;
 		}
 
-        QString dateString = line.at(1);
-        int date = QDate::fromString(dateString, " yyyyMMdd").toJulianDay();
+        QString dateString = line.at(0);
+        int date = QDate::fromString(dateString, Qt::ISODate).toJulianDay();
 		
 		if (date < beginDate_ || date > endDate_ || priceHistory_.contains(date, historicalPrices::type_split))
 			continue;
@@ -212,11 +217,10 @@ int priceGetterYahoo::getSplits(const QString &symbol_, historicalPrices priceHi
 
 		earliestUpdate = qMin(earliestUpdate, date);
 
-		QList<QByteArray> ratio_arr = line.at(2).split(':');
-		if (ratio_arr.at(0).toDouble() == 0 || ratio_arr.at(1).toDouble() == 0) // just in case
+		if (line.at(2).toDouble() == 0) // just in case
 			continue;
 
-		double ratio = ratio_arr.at(0).toDouble() / ratio_arr.at(1).toDouble();
+		double ratio = line.at(2).toDouble();
 
 		priceHistory_.insert(date, ratio, historicalPrices::type_split);
 	}
